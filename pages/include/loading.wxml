@@ -1,0 +1,3 @@
+<view class="loading">
+    <image src="/image/loading.gif"></image>
+</view>

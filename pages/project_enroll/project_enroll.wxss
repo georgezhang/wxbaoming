@@ -1,0 +1,5 @@
+@import "../commonwxss/projects.wxss";
+.enroll_detail{
+    display: flex;
+    flex-direction: column;
+}

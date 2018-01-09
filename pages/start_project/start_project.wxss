@@ -1,0 +1,19 @@
+text {
+    color: #848383;
+}
+
+.pickdate {
+    padding: 0 32rpx;
+}
+
+.flex-row picker {
+    flex-grow: 1;
+}
+view.section textarea {
+    height: 250rpx !important;
+}
+.extraItems button{
+    width: auto;
+    display: inline-block;
+    margin: 0 8rpx;
+}

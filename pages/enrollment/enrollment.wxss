@@ -1,0 +1,19 @@
+@import "../commonwxss/projects.wxss";
+.project_content text {
+    padding: 0;
+}
+.project_content .project_menu {
+    flex-grow: 1;
+    padding-top: 12rpx;
+}
+.top_space {
+    margin-top: 40rpx;
+}
+.avatar {
+    width: 60rpx;
+    height: 60rpx;
+    margin: 2rpx;
+}
+.avatars {
+    margin-left: 24rpx;
+}

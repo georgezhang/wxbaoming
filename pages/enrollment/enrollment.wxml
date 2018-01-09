@@ -1,0 +1,86 @@
+<!--enrollment.wxml-->
+<view class="container">
+    <include src="../include/progress.wxml" />
+    <block wx:if="{{isPageLoading}}">
+        <include src="../include/loading.wxml" />
+    </block>
+    <block wx:else>
+        <view class="section project_content">
+            <view>
+                <text class="project_name">【{{project.status}}】{{project.title}}</text>
+            </view>
+            <view>
+                <text class="project_label">时间：</text>
+                <text class="project_value">{{project.startDate}}至{{project.endDate}}</text>
+            </view>
+            <view>
+                <text class="project_label">地点：</text>
+                <text class="project_value">{{project.address}}</text>
+            </view>
+            <view>
+                <text class="project_label">人数：</text>
+                <text class="project_value">{{project.noOfPerson}}/{{project.limitOfPerson}}</text>
+            </view>
+            <view>
+                <text class="project_label">{{project.description}}</text>
+            </view>
+            <!--view>
+            <text class="project_label">报名截止时间：</text>
+            <text class="project_value">{{project.dueDate}}</text>
+        </view-->
+            <view class="avatars">
+                <block wx:for="{{enrollments}}" wx:for-index="idx" wx:for-item="enrollment" wx:key="_id">
+                    <image class="avatar" data-index="{{idx}}" mode="aspectFit" src="{{enrollment.userId.avatarUrl}}"></image>
+                </block>
+            </view>
+
+
+            <view class="top_space">
+                <text class="project_menu"></text>
+                <!--button type="default" size="mini" bindtap="bindShareInfo">转发</button-->
+                <button type="default" size="mini" bindtap="bindCopyPasteTap">复制活动</button>
+                <block wx:if="{{isOwner}}">
+                    <button type="default" size="mini" bindtap="bindManageTap">活动管理</button>
+                </block>
+            </view>
+
+        </view>
+        <block wx:if="{{available}}">
+            <view class="section hr">
+                <view class="avatarContainer">
+                    <view>
+                        <image class="avatar" mode="aspectFit" src="{{avatarUrl}}"></image>
+                    </view>
+                    <view><text>{{nickName}}</text></view>
+                </view>
+            </view>
+            <view class="section label">
+                <text>人数</text>
+            </view>
+            <view class="section">
+                <input placeholder-style="color:#c9c9c9" type="number" auto-focus bindblur="bindNoOfPersonInput" value="{{noOfPerson}}" />
+            </view>
+            <block wx:for="{{extraItems}}" wx:key="name">
+                <view class="section label">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="section">
+                    <input placeholder="填写{{item.name}}" placeholder-style="color:#c9c9c9" data-index="{{index}}" bindblur="bindItemInput" value="{{item.value}}" />
+                </view>
+            </block>
+            <!--确认报名-->
+            <view class="section">
+                <button type="primary" bindtap="bindConfirmEnroll">确认报名</button>
+                <text class="errorMessage">{{errorMessage}}</text>
+                <block wx:if="{{joined}}">
+                    <button type="default" bindtap="bindLeaveEnroll">取消报名</button>
+                </block>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="section header">
+                <text>报名已经结束 😞</text>
+            </view>
+        </block>
+    </block>
+</view>

@@ -1,0 +1,19 @@
+<include src="../include/progress.wxml" />
+<block wx:if="{{isPageLoading}}">
+    <include src="../include/loading.wxml" />
+</block>
+<block wx:else>
+    <block wx:if="{{hasData}}">
+        <block wx:for="{{projects}}" wx:for-index="idx" wx:for-item="project" wx:key="_id">
+            <view class="section" data-index="{{idx}}" bindtap="bindProjectDetailTap">
+                <view><text class="project_name">【{{project.status}}】{{project.title}}</text></view>
+                <view><text class="project_detail">截止时间：{{project.dueDate}}，报名人数：{{project.noOfPerson}}/{{project.limitOfPerson}}</text></view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="section header">
+            <text>{{emptyMessage}}</text>
+        </view>
+    </block>
+</block>

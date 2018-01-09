@@ -1,0 +1,45 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/start_project/start_project",
+        "pages/joined_project/joined_project",
+        "pages/my_projects/my_projects",
+        "pages/enrollment/enrollment",
+        "pages/start_project_confirmed/start_project_confirmed",
+        "pages/recent_projects/recent_projects",
+        "pages/add_custom_item/add_custom_item",
+        "pages/project_enroll/project_enroll"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "快乐报名",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#7A7E83",
+        "selectedColor": "#3cc51f",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [{
+            "pagePath": "pages/index/index",
+            "iconPath": "image/home.png",
+            "selectedIconPath": "image/home_HL.png",
+            "text": "首页"
+        }, {
+            "pagePath": "pages/my_projects/my_projects",
+            "iconPath": "image/my_projects.png",
+            "selectedIconPath": "image/my_projects_HL.png",
+            "text": "我发起的"
+        }, {
+            "pagePath": "pages/joined_project/joined_project",
+            "iconPath": "image/joined_project.png",
+            "selectedIconPath": "image/joined_project_HL.png",
+            "text": "我参与的"
+        }]
+    },
+    "networkTimeout": {
+        "request": 120000
+    }
+}

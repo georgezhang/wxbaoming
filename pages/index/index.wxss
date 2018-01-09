@@ -1,0 +1,14 @@
+.circle {
+    display:block;
+    height: 90rpx;
+    width: 90rpx;
+    border-radius: 50%;
+    background-color: #1AAD19;
+    position: relative;
+    margin-top: 15rpx;
+}
+contact-button {
+    top: 18rpx;
+    left: 20rpx;
+    position: absolute;
+}

@@ -1,0 +1,15 @@
+<view class="container">
+    <include src="../include/progress.wxml"/>
+    <!--新信息框-->
+    <view class="section label">
+        <text>新信息框</text>
+    </view>
+    <view class="section">
+        <input placeholder="比如，你喜欢的..." placeholder-style="color:#c9c9c9" auto-focus bindinput="bindNewItemInput" />
+    </view>
+    <!--确认添加-->
+    <view class="section">
+        <button type="primary" bindtap="bindConfirmNewItem">添加</button>
+        <text class="errorMessage">{{errorMessage}}</text>
+    </view>
+</view>

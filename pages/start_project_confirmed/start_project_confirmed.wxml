@@ -1,0 +1,17 @@
+<!--joined_project.wxml-->
+<view class="container">
+    <include src="../include/progress.wxml" />
+    <block wx:if="{{isPageLoading}}">
+        <include src="../include/loading.wxml" />
+    </block>
+    <block wx:else>
+        <view class="section header">
+            <icon type="success" size="120" />
+            <text>活动发起成功</text>
+            <text class="caption">您可以：</text>
+        </view>
+        <view class="section">
+            <button type="primary" bindtap="bindShareTap">查看活动和分享到微信</button>
+        </view>
+    </block>
+</view>

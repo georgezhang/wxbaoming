@@ -1,0 +1,31 @@
+<view class="container">
+    <include src="../include/progress.wxml" />
+    <block wx:if="{{isPageLoading}}">
+        <include src="../include/loading.wxml" />
+    </block>
+    <block wx:else>
+        <block wx:if="{{hasData}}">
+            <block wx:for="{{enrollments}}" wx:for-index="idx" wx:for-item="enrollment" wx:key="_id">
+                <view class="section hr" data-index="{{idx}}">
+                    <view class="avatarContainer">
+                        <view>
+                            <image class="avatar" mode="aspectFit" src="{{enrollment.userId.avatarUrl}}"></image>
+                        </view>
+                        <view class="enroll_detail">
+                            <text class="project_name">{{enrollment.userId.nickName}}</text>
+                            <text class="project_detail">参加人数：{{enrollment.noOfPerson}}</text>
+                            <block wx:for="{{enrollment.extra.items}}" wx:for-index="idx" wx:for-item="item" wx:key="name">
+                                <text class="project_detail">{{item.name}}: {{item.value}}</text>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class="section header">
+                <text>{{emptyMessage}}</text>
+            </view>
+        </block>
+    </block>
+</view>

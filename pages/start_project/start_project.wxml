@@ -1,0 +1,98 @@
+<!--start_project.wxml-->
+<view class="container">
+    <include src="../include/progress.wxml" />
+    <block wx:if="{{isPageLoading}}">
+        <include src="../include/loading.wxml" />
+    </block>
+    <block wx:else>
+        <!--活动标题-->
+        <view class="section label">
+            <text>活动标题</text>
+        </view>
+        <view class="section">
+            <input placeholder="对活动的简短说明" placeholder-style="color:#c9c9c9" auto-focus bindblur="bindTitleInput" value="{{title}}" />
+        </view>
+        <!--活动地址-->
+        <view class="section label">
+            <text>活动地址</text>
+        </view>
+        <view class="section">
+            <input placeholder="请输入活动举办地址" placeholder-style="color:#c9c9c9" bindblur="bindAddressInput" value="{{address}}" />
+        </view>
+        <!--活动开始时间-->
+        <view class="section label">
+            <text>活动开始时间</text>
+        </view>
+        <view class="section flex-row">
+            <picker class="pickdate" mode="date" value="{{startDate}}" start="{{firstAvailableDate}}" end="{{lastAvailableDate}}" bindchange="bindStartDateChange">
+                <view class="picker">
+                    {{startDate}}
+                </view>
+            </picker>
+            <picker mode="time" value="{{startTime}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+                <view class="picker">
+                    {{startTime}}
+                </view>
+            </picker>
+        </view>
+        <!--活动结束时间-->
+        <view class="section label">
+            <text>活动结束时间</text>
+        </view>
+        <view class="section flex-row">
+            <picker class="pickdate" mode="date" value="{{endDate}}" start="{{firstAvailableDate}}" end="{{lastAvailableDate}}" bindchange="bindEndDateChange">
+                <view class="picker">
+                    {{endDate}}
+                </view>
+            </picker>
+            <picker mode="time" value="{{endTime}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+                <view class="picker">
+                    {{endTime}}
+                </view>
+            </picker>
+        </view>
+        <!--活动内容-->
+        <view class="section label">
+            <text>活动内容说明</text>
+        </view>
+        <view class="section">
+            <textarea bindblur="bindDescriptionInput" placeholder="请输入活动介绍等" value="{{description}}" />
+        </view>
+        <!--活动设置-->
+        <view class="section label">
+            <text>设置</text>
+        </view>
+        <view class="section flex-row">
+            <text class="pad_top">人数上限</text>
+            <input type="number" placeholder="没有限制请输入0" bindblur="bindLimitOfPersonInput" value="{{limitOfPerson}}" />
+        </view>
+        <view class="section flex-row">
+            <text>报名截止时间</text>
+            <picker class="pickdate" mode="date" value="{{dueDate}}" start="{{firstAvailableDate}}" end="{{lastAvailableDate}}" bindchange="bindDueDateChange">
+                <view class="picker">
+                    {{dueDate}}
+                </view>
+            </picker>
+            <picker mode="time" value="{{dueTime}}" start="00:00" end="23:59" bindchange="bindDueTimeChange">
+                <view class="picker">
+                    {{dueTime}}
+                </view>
+            </picker>
+        </view>
+        <view class="section flex-col label">
+            <text>报名默认选项有昵称和人数</text>
+            <text>下面是可选项（点击选取）</text>
+        </view>
+        <view class="section extraItems">
+            <block wx:for="{{extraItems}}" wx:for-index="idx" wx:for-item="item" wx:key="name">
+                <button type="{{item.type}}" class="extra-item" data-index="{{idx}}" bindtap="bindItemTap">{{item.name}}</button>
+            </block>
+            <button type="primary" bindtap="bindCustomItemTap">添加自定义</button>
+        </view>
+        <!--确认发布-->
+        <view class="section">
+            <button type="primary" bindtap="bindConfirmProject">确认无误，发布</button>
+            <text class="errorMessage">{{errorMessage}}</text>
+        </view>
+    </block>
+</view>

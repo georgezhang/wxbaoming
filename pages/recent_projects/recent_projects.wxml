@@ -1,0 +1,3 @@
+<view class="container">
+    <include src="../include/projects.wxml" />
+</view>

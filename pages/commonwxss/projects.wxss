@@ -1,0 +1,24 @@
+.project_name {
+    font-weight: bold;
+}
+.project_detail, .project_label, .project_value {
+    margin-left: 24rpx;
+    font-size: 28rpx;
+    color: #404040;
+    margin-top: 6rpx;
+}
+.project_label {
+    color: #383838;
+    font-weight: bold;
+    font-size: 36rpx;
+}
+.project_content view{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 2rpx;
+}
+.project_content button {
+    width: auto;
+    margin: 0 2rpx;
+}
